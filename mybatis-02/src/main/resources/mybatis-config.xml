@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!--究极之恶心的  如果xml文件的第一行的 encoding=UTF-8就会报错   改成UTF8才不会报错-->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--configuration为核心配置文件-->
+<configuration>
+<!--    引入外部配置文件-->
+    <properties resource="db.properties">
+<!--        在db.properties文件中不写以下两个熟悉也是可以的   只需在properties中加入property标签添加相应属性即可-->
+<!--        <property name="username" value="root"/>-->
+<!--        <property name="password" value="root"/>-->
+<!--        对比可得出  若属性名相同,会优先使用外部配置文件db.properties中的属性-->
+
+    </properties>
+
+<!--   1 可以给实体类起别名-->
+    <typeAliases>
+        <typeAlias type="com.zdk.pojo.User" alias="User"/>
+<!--       2 扫描实体类的包  它的默认别名就为这个类的类名的小写字母形式-->
+<!--        实测  全小写或全大写都能识别出  官方建议 全小写-->
+<!--        实体类较少时 建议使用起别名方式;实体类较少时，建议使用扫描包的方式-->
+<!--还可通过 @Alias() 注解的方式给实体类起别名，但注解方式失败  原因未知！！！！！！！-->
+        <package name="com.zdk.pojo.User"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+<!--    每一个Mapper.xml都需要在mybatis核心配置文件中注册!-->
+    <mappers>
+        <mapper resource="com/zdk/dao/UserMapper.xml"/>
+<!--        通过接口路径进行映射时 接口和xml文件必须和类在同一个包下 且必须同名-->
+<!--        <mapper class="com.zdk.dao.UserMapper"></mapper>-->
+
+<!--        包扫描绑定 将包下的所有xml注册   注意点同上-->
+        <package name="com.zdk.dao"/>
+    </mappers>
+</configuration>

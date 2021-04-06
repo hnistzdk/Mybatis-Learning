@@ -1,0 +1,80 @@
+[INFO][21-03-30][com.zdk.dao.UserDaoTest]info:进入了testLOG4J方法
+[DEBUG][21-03-30][com.zdk.dao.UserDaoTest]debug:进入了testLOG4J方法
+[ERROR][21-03-30][com.zdk.dao.UserDaoTest]error:进入了testLOG4J方法
+[INFO][2021-03-30][com.zdk.dao.UserDaoTest]info:进入了testLOG4J方法
+[DEBUG][2021-03-30][com.zdk.dao.UserDaoTest]debug:进入了testLOG4J方法
+[ERROR][2021-03-30][com.zdk.dao.UserDaoTest]error:进入了testLOG4J方法
+[INFO][2021-03-30 20:23:52][com.zdk.dao.UserDaoTest]info:进入了testLOG4J方法
+[DEBUG][2021-03-30 20:23:52][com.zdk.dao.UserDaoTest]debug:进入了testLOG4J方法
+[ERROR][2021-03-30 20:23:52][com.zdk.dao.UserDaoTest]error:进入了testLOG4J方法
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.io.VFS]Class not found: org.jboss.vfs.VFS
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.io.JBoss6VFS]JBoss 6 VFS API is not available in this environment.
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.io.VFS]Class not found: org.jboss.vfs.VirtualFile
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.io.VFS]VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.io.VFS]Using VFS adapter org.apache.ibatis.io.DefaultVFS
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.transaction.jdbc.JdbcTransaction]Opening JDBC Connection
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.datasource.pooled.PooledDataSource]Created connection 1983025922.
+[DEBUG][2021-03-30 20:46:37][org.apache.ibatis.transaction.jdbc.JdbcTransaction]Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@76329302]
+[DEBUG][2021-03-30 20:46:37][com.zdk.dao.UserMapper.getUserListByLimit]==>  Preparing: select *from user limit ?,?;
+[DEBUG][2021-03-30 20:46:37][com.zdk.dao.UserMapper.getUserListByLimit]==> Parameters: 0(Integer), 2(Integer)
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.io.VFS]Class not found: org.jboss.vfs.VFS
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.io.JBoss6VFS]JBoss 6 VFS API is not available in this environment.
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.io.VFS]Class not found: org.jboss.vfs.VirtualFile
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.io.VFS]VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.io.VFS]Using VFS adapter org.apache.ibatis.io.DefaultVFS
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.transaction.jdbc.JdbcTransaction]Opening JDBC Connection
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.datasource.pooled.PooledDataSource]Created connection 1983025922.
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.transaction.jdbc.JdbcTransaction]Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@76329302]
+[DEBUG][2021-03-30 20:47:56][com.zdk.dao.UserMapper.getUserListByLimit]==>  Preparing: select * from user limit ?,?;
+[DEBUG][2021-03-30 20:47:56][com.zdk.dao.UserMapper.getUserListByLimit]==> Parameters: 0(Integer), 2(Integer)
+[DEBUG][2021-03-30 20:47:56][com.zdk.dao.UserMapper.getUserListByLimit]<==      Total: 2
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.transaction.jdbc.JdbcTransaction]Resetting autocommit to true on JDBC Connection [com.mysql.jdbc.JDBC4Connection@76329302]
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.transaction.jdbc.JdbcTransaction]Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@76329302]
+[DEBUG][2021-03-30 20:47:56][org.apache.ibatis.datasource.pooled.PooledDataSource]Returned connection 1983025922 to pool.
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.io.VFS]Class not found: org.jboss.vfs.VFS
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.io.JBoss6VFS]JBoss 6 VFS API is not available in this environment.
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.io.VFS]Class not found: org.jboss.vfs.VirtualFile
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.io.VFS]VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.io.VFS]Using VFS adapter org.apache.ibatis.io.DefaultVFS
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.transaction.jdbc.JdbcTransaction]Opening JDBC Connection
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.datasource.pooled.PooledDataSource]Created connection 518522822.
+[DEBUG][2021-03-30 20:56:42][org.apache.ibatis.transaction.jdbc.JdbcTransaction]Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@1ee807c6]
+[DEBUG][2021-03-30 20:56:42][com.zdk.dao.UserMapper.getUserListByRowBounds]==>  Preparing: select * from user limit ?,?;
+[DEBUG][2021-03-30 20:56:42][com.zdk.dao.UserMapper.getUserListByRowBounds]==> Parameters: null, null
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.io.VFS]Class not found: org.jboss.vfs.VFS
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.io.JBoss6VFS]JBoss 6 VFS API is not available in this environment.
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.io.VFS]Class not found: org.jboss.vfs.VirtualFile
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.io.VFS]VFS implementation org.apache.ibatis.io.JBoss6VFS is not valid in this environment.
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.io.VFS]Using VFS adapter org.apache.ibatis.io.DefaultVFS
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.datasource.pooled.PooledDataSource]PooledDataSource forcefully closed/removed all connections.
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.transaction.jdbc.JdbcTransaction]Opening JDBC Connection
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.datasource.pooled.PooledDataSource]Created connection 518522822.
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.transaction.jdbc.JdbcTransaction]Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@1ee807c6]
+[DEBUG][2021-03-30 20:59:24][com.zdk.dao.UserMapper.getUserListByRowBounds]==>  Preparing: select * from user;
+[DEBUG][2021-03-30 20:59:24][com.zdk.dao.UserMapper.getUserListByRowBounds]==> Parameters: 
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.transaction.jdbc.JdbcTransaction]Resetting autocommit to true on JDBC Connection [com.mysql.jdbc.JDBC4Connection@1ee807c6]
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.transaction.jdbc.JdbcTransaction]Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@1ee807c6]
+[DEBUG][2021-03-30 20:59:24][org.apache.ibatis.datasource.pooled.PooledDataSource]Returned connection 518522822 to pool.
