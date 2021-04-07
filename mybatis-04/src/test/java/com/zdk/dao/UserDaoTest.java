@@ -28,4 +28,31 @@ public class UserDaoTest {
         }
         sqlSession.close();
     }
+    @Test
+    public void deleteUser(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        int count=mapper.deleteUser(1);
+        sqlSession.commit();
+        System.out.println(count);
+        sqlSession.close();
+    }
+    @Test
+    public void addUser(){
+        SqlSession sqlSession=MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        int count=mapper.addUser(new User(7, "张", "123145"));
+        sqlSession.commit();
+        System.out.println(count);
+        sqlSession.close();
+    }
+    @Test
+    public void updateUser(){
+        SqlSession sqlSession=MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        int count=mapper.updateUser(new User(1, "张三", "888888"));
+        sqlSession.commit();
+        System.out.println(count);
+        sqlSession.close();
+    }
 }

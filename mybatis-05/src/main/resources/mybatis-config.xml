@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!--究极之恶心的  如果xml文件的第一行的 encoding=UTF-8就会报错   改成UTF8才不会报错-->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--configuration为核心配置文件-->
+<configuration>
+<!--    引入外部配置文件-->
+    <properties resource="db.properties">
+<!--        在db.properties文件中不写以下两个熟悉也是可以的   只需在properties中加入property标签添加相应属性即可-->
+<!--        <property name="username" value="root"/>-->
+<!--        <property name="password" value="root"/>-->
+<!--        对比可得出  若属性名相同,会优先使用外部配置文件db.properties中的属性-->
+
+    </properties>
+    
+<!--    配置日志-->
+    <settings>
+<!--        标准日志工厂实现-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    
+
+<!--   1 可以给实体类起别名-->
+    <typeAliases>
+        <package name="com.zdk.pojo"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+<!--    绑定接口-->
+    <mappers>
+        <package name="com.zdk.dao"/>
+<!--        <mapper class="com.zdk.dao.TeacherMapper"></mapper>-->
+<!--        <mapper class="com.zdk.dao.StudentMapper"></mapper>-->
+    </mappers>
+
+</configuration>

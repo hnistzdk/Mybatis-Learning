@@ -13,7 +13,7 @@
 <!--        <result column="id" property="id"></result>-->
 <!--        <result column="name" property="name"></result>-->
 <!--        哪条字段不一致就映射哪一条-->
-        <result column="password" property="pwd"></result>
+        <result column="password" property="password"></result>
     </resultMap>
 
     <select id="getUserList" resultMap="UserMap">

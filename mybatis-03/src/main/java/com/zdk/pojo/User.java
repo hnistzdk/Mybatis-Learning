@@ -2,7 +2,6 @@ package com.zdk.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.apache.ibatis.type.Alias;
 
 /**
  * @author zdk
@@ -10,9 +9,8 @@ import org.apache.ibatis.type.Alias;
  */
 @Data
 @AllArgsConstructor
-@Alias("hello")
 public class User {
     private int id;
     private String name;
-    private String pwd;
+    private String password;
 }

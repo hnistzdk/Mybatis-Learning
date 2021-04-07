@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!--究极之恶心的  如果xml文件的第一行的 encoding=UTF-8就会报错   改成UTF8才不会报错-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zdk.dao.StudentMapper">
+    <!--    一.按照查询进行嵌套处理
+            1.查询所有学生信息
+            2.按照查询出的tid，查询对应的老师信息
+    -->
+    <select id="getStudentList" resultMap="StudentAndTeacher">
+        select * from student;
+    </select>
+    <resultMap id="StudentAndTeacher" type="Student">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <!--  复杂属性 单独处理      association处理对象  collection用于处理集合-->
+        <association property="teacher" column="tid" javaType="Teacher" select="getTeacher"/>
+    </resultMap>
+    <select id="getTeacher" resultType="Teacher">
+        select * from teacher where id=#{id};
+    </select>
+
+
+    <!--        二.按照结果嵌套处理-->
+    <select id="getStudentList2" resultMap="StudentAndTeacher2">
+        select s.id sid,s.name sname,t.id ttid,t.name tname
+        from student s,teacher t
+        where s.tid=t.id;
+    </select>
+    <resultMap id="StudentAndTeacher2" type="Student">
+        <result property="id" column="sid"/>
+        <result property="name" column="sname"/>
+        <association property="teacher" javaType="Teacher">
+            <result property="id" column="ttid"/>
+            <result property="name" column="tname"/>
+        </association>
+    </resultMap>
+</mapper>
