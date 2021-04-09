@@ -61,9 +61,82 @@
     </mappers>
 </configuration>
 ```
+##资源过滤器
+使用此种方法时 必须配置资源过滤
+![img.png](img.png)
+```xml
+<!--    配置过滤 防止资源导出失败-->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+```
+
+
 ##常用增删改查、分页xml配置文件
 ```xml
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="com.zdk.dao.UserMapper">
 
+    <!--    查询语句-->
+    <!--    id对应接口方法名称-->
+
+    <!--    结果集映射  将select中的返回类型改成resultMap 值即为以下的id  然后其中的column为数据库中的字段名 property即为实体类中的属性名-->
+    <resultMap id="UserMap" type="User">
+        <!--        <result column="id" property="id"></result>-->
+        <!--        <result column="name" property="name"></result>-->
+        <!--        哪条字段不一致就映射哪一条-->
+        <result column="password" property="password"></result>
+    </resultMap>
+
+    <select id="getUserList" resultMap="UserMap">
+        select * from user ;
+    </select>
+
+
+    <select id="getUserById" resultType="User" parameterType="int">
+        select * from user where id=#{id};
+    </select>
+    <insert id="addUser" parameterType="User">
+        insert into user (id, name, password) values (#{id},#{name},#{password});
+    </insert>
+    <update id="modifyUser" parameterType="User">
+        update user set name=#{name},password=#{password} where id=#{id};
+    </update>
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id=#{id};
+    </delete>
+
+    <!--    分页1-->
+    <select id="getUserListByLimit" parameterType="map" resultType="user">
+        select * from user limit #{startIndex},#{pageSize};
+    </select>
+
+    <!--    分页2-->
+    <select id="getUserListByRowBounds" resultType="user">
+        select * from user;
+    </select>
+</mapper>
 ```
 
 ##简单注解的使用
