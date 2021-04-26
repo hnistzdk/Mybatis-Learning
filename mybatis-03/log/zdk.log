@@ -1,12 +1,12 @@
-[INFO][21-03-30][com.zdk.dao.UserDaoTest]info:进入了testLOG4J方法
-[DEBUG][21-03-30][com.zdk.dao.UserDaoTest]debug:进入了testLOG4J方法
-[ERROR][21-03-30][com.zdk.dao.UserDaoTest]error:进入了testLOG4J方法
-[INFO][2021-03-30][com.zdk.dao.UserDaoTest]info:进入了testLOG4J方法
-[DEBUG][2021-03-30][com.zdk.dao.UserDaoTest]debug:进入了testLOG4J方法
-[ERROR][2021-03-30][com.zdk.dao.UserDaoTest]error:进入了testLOG4J方法
-[INFO][2021-03-30 20:23:52][com.zdk.dao.UserDaoTest]info:进入了testLOG4J方法
-[DEBUG][2021-03-30 20:23:52][com.zdk.dao.UserDaoTest]debug:进入了testLOG4J方法
-[ERROR][2021-03-30 20:23:52][com.zdk.dao.UserDaoTest]error:进入了testLOG4J方法
+[INFO][21-03-30][UserDaoTest]info:进入了testLOG4J方法
+[DEBUG][21-03-30][UserDaoTest]debug:进入了testLOG4J方法
+[ERROR][21-03-30][UserDaoTest]error:进入了testLOG4J方法
+[INFO][2021-03-30][UserDaoTest]info:进入了testLOG4J方法
+[DEBUG][2021-03-30][UserDaoTest]debug:进入了testLOG4J方法
+[ERROR][2021-03-30][UserDaoTest]error:进入了testLOG4J方法
+[INFO][2021-03-30 20:23:52][UserDaoTest]info:进入了testLOG4J方法
+[DEBUG][2021-03-30 20:23:52][UserDaoTest]debug:进入了testLOG4J方法
+[ERROR][2021-03-30 20:23:52][UserDaoTest]error:进入了testLOG4J方法
 [DEBUG][2021-03-30 20:46:37][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
 [DEBUG][2021-03-30 20:46:37][org.apache.ibatis.logging.LogFactory]Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
 [DEBUG][2021-03-30 20:46:37][org.apache.ibatis.io.VFS]Class not found: org.jboss.vfs.VFS

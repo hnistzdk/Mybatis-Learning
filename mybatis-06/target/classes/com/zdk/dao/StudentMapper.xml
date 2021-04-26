@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!--究极之恶心的  如果xml文件的第一行的 encoding=UTF-8就会报错   改成UTF8才不会报错-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zdk.dao.StudentMapper">
+
+</mapper>

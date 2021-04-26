@@ -212,4 +212,30 @@ public class Student {
 </mapper>
 ```
 
+##一对多的处理
+###一个老师对应多个学生：实体类
+
+```java
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Student {
+    private int id;
+    private String name;
+    private int tid;
+}
+```
+```java
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Teacher {
+    private int id;
+    private String name;
+    //一个老师拥有多个学生
+    
+    private List<Student> students;
+}
+```
+
 
