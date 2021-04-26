@@ -20,4 +20,18 @@ public class MyTest {
             System.out.println(teacher);
         }
     }
+    @Test
+    public void test1(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+        Teacher teacher= mapper.getTeacherS(1);
+        System.out.println(teacher);
+    }
+    @Test
+    public void test2(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+        Teacher teacher= mapper.getTeacherS2(1);
+        System.out.println(teacher);
+    }
 }

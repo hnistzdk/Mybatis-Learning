@@ -238,4 +238,204 @@ public class Teacher {
 }
 ```
 
+###老师的mapper
+```java
+public interface TeacherMapper {
+    //获取所有老师
+    List<Teacher> getTeacher();
+
+    //获取一个老师下的所有学生以及这个老师的信息
+    Teacher getTeacherS(@Param("tid") int id);
+
+    //获取一个老师下的所有学生以及这个老师的信息
+    Teacher getTeacherS2(@Param("tid") int id);
+}
+```
+
+###TeacherMapper.xml文件配置
+####方法一 按结果嵌套查询
+
+#####xml
+```xml
+<!--    方法一  按结果嵌套查询-->
+<!--    先将所有要查的字段全部查出来-->
+    <select id="getTeacherS" resultMap="getTeacherSMap">
+        select s.id sid,s.name sname,t.name tname,t.id tid
+        from student s,teacher t
+        where s.tid=t.id and t.id=#{tid};
+    </select>
+<!--    再将查出来的字段映射到老师对应的属性中去  collection表示集合   association表示对象-->
+    <resultMap id="getTeacherSMap" type="Teacher">
+        <result property="id" column="tid"/>
+        <result property="name" column="tname"/>
+        <collection property="students" ofType="Student">
+            <result property="id" column="sid"/>
+            <result property="name" column="sname"/>
+            <result property="tid" column="tid"/>
+        </collection>
+    </resultMap>
+```
+#####测试
+```java
+public class MyTest {
+    @Test
+    public void test1(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+        Teacher teacher= mapper.getTeacherS(1);
+        System.out.println(teacher);
+    }
+}
+```
+
+####利用子查询 然后映射
+
+#####xml
+```xml
+<!--    方法2 子查询-->
+<!--    先直接查老师的所有信息-->
+    <select id="getTeacherS2" resultMap="getTeacherSMap2">
+        select *
+        from teacher
+        where id=#{tid};
+    </select>
+<!--    子查询语句-->
+    <select id="getStudentByTeacherId" resultType="Student">
+        select *
+        from student where tid=#{tid};
+    </select>
+<!--    对Teacher中的List<Student> students进行映射-->
+    <resultMap id="getTeacherSMap2" type="Teacher">
+<!--        这句话得加上  不然老师查出的id为0-->
+        <result property="id" column="id"/>
+<!--        Javatype是表示students属性的类型，oftype表示这个类型的泛型类型-->
+        <collection property="students" javaType="ArrayList" ofType="Student" select="getStudentByTeacherId" column="id"/>
+    </resultMap>
+```
+
+#####测试
+```java
+public class MyTest {
+    @Test
+    public void test2(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+        Teacher teacher= mapper.getTeacherS2(1);
+        System.out.println(teacher);
+    }
+}
+```
+#####结果均可查出
+```text
+Teacher(id=1, name=秦老师, students=[Student(id=1, name=小明, tid=1), 
+Student(id=2, name=小红, tid=1), Student(id=3, name=小张, tid=1), 
+Student(id=4, name=小李, tid=1), Student(id=5, name=小王, tid=1)])
+```
+
+
+##动态SQL(重点)
+###环境搭建
+```java
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Blog {
+    private String id;
+    private String title;
+    private String author;
+    private Date createTime;
+    private int views;
+}
+```
+```java
+public interface BlogMapper {
+    int addBlog(Blog blog);
+
+    //查询博客 通过if
+    List<Blog> queryBlogIf(Map map);
+}
+```
+```java
+public class MyTest {
+    @Test
+    public void addInitBlog(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+
+        Blog blog=new Blog();
+        blog.setId(IdUtils.getUUID());
+        blog.setTitle("Mybatis如此简单");
+        blog.setAuthor("狂神说");
+        blog.setCreateTime(new Date());
+        blog.setViews(9999);
+        mapper.addBlog(blog);
+
+        blog.setId(IdUtils.getUUID());
+        blog.setTitle("Java如此简单");
+        mapper.addBlog(blog);
+
+        blog.setId(IdUtils.getUUID());
+        blog.setTitle("Spring如此简单");
+        mapper.addBlog(blog);
+
+        blog.setId(IdUtils.getUUID());
+        blog.setTitle("微服务如此简单");
+        mapper.addBlog(blog);
+
+        sqlSession.close();
+    }
+}
+```
+
+###if语句使用
+
+```xml
+<?xml version="1.0" encoding="UTF8" ?>
+<!--究极之恶心的  如果xml文件的第一行的 encoding=UTF-8就会报错   改成UTF8才不会报错-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zdk.mapper.BlogMapper">
+
+    <insert id="addBlog" parameterType="Blog">
+        insert into blog (id, title, author, create_time, views)
+        values (#{id},#{title},#{author},#{createTime},#{views});
+    </insert>
+    <select id="queryBlogIf" parameterType="map" resultType="Blog">
+        select * from blog where 1=1
+        <if test="title != null">
+            and title=#{title}
+        </if>
+        <if test="author != null">
+            and author=#{author}
+        </if>
+    </select>
+</mapper>
+```
+####测试结果
+```java
+public class MyTest {
+    @Test
+    public void queryBlogIf(){
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
+        HashMap map = new HashMap<>();
+
+        //map.put("title", "Java如此简单");
+        map.put("author", "狂神说");
+        List<Blog> blogs = mapper.queryBlogIf(map);
+        for (Blog blog : blogs) {
+            System.out.println(blog);
+        }
+    }
+}
+```
+```text
+Blog(id=5d18217da51c46f981909c65a5304b62, title=Mybatis如此简单, author=狂神说, createTime=Mon Apr 26 20:59:02 CST 2021, views=3000)
+Blog(id=aa5ea0c0b60e4755897007da040a5901, title=Java如此简单, author=狂神说, createTime=Mon Apr 26 20:59:02 CST 2021, views=1000)
+Blog(id=9e497893427141469a6a0b041ad0b34d, title=Spring如此简单, author=狂神说, createTime=Mon Apr 26 20:59:02 CST 2021, views=9999)
+Blog(id=e7a2240692a44d7bba299db170b14cf0, title=微服务如此简单, author=狂神说, createTime=Mon Apr 26 20:59:02 CST 2021, views=9999)
+```
+
 

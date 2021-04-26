@@ -13,4 +13,10 @@ import java.util.List;
 public interface TeacherMapper {
     //获取所有老师
     List<Teacher> getTeacher();
+
+    //获取一个老师下的所有学生以及这个老师的信息
+    Teacher getTeacherS(@Param("tid") int id);
+
+    //获取一个老师下的所有学生以及这个老师的信息
+    Teacher getTeacherS2(@Param("tid") int id);
 }
